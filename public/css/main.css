@@ -1,0 +1,21 @@
+*{
+    margin:0;
+    padding:0;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+}
+.buttons{
+    margin: 0 25px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    color: white;
+}
