@@ -19,3 +19,28 @@
 .buttons a:visited{
     color: white;
 }
+.login_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 250px;
+    align-items: center;
+    margin: 20px auto;
+}
+.login_container *{
+    margin-top: 30px;
+}
+#auth_button{
+    display:block;
+    background-color: #05f;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.login_container a{
+    text-decoration: none;
+    color: white;
+}
+.login_container a:visited{
+    color: white;
+    text-decoration: none;
+}
