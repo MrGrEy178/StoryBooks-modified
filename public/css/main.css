@@ -12,10 +12,10 @@
 .buttons{
     margin: 0 25px;
 }
-a{
+.buttons a{
     text-decoration: none;
     color: white;
 }
-a:visited{
+.buttons a:visited{
     color: white;
 }
