@@ -1,14 +1,25 @@
 <div id="main">
     <div class="posts_container">
-    {{#each posts}}
         <div class="posts">
-            <h3 class="posts_title">
-                {{this.title}}
-            </h3>
-            <p class="posts_content">
-                {{this.content}}
-            </p>
+            <table>
+                <thead>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    {{#each posts}}
+                        <tr>
+                            <td>{{title}}</td>
+                            <td>None</td>
+                            <td>{{status}}</td>
+                            <td>Buttons</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
-    {{/each}}
     </div>
 </div>
+<script src="public/js/main.js"></script>

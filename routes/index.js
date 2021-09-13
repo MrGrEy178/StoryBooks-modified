@@ -11,19 +11,24 @@ router.get('/dashboard', ensureAuth, (req, res) => {
         posts: [
             {
                 title: 'first',
-                content: 'lorem ipsum dolor sit amet'
+                content: 'lorem ipsum dolor sit amet',
+                status: 'Public'
             },{
                 title: 'second',
-                content: 'lorem ipsum dolor sit amet'
+                content: 'lorem ipsum dolor sit amet',
+                status: 'Public'
             },{
                 title: 'third',
-                content: 'lorem ipsum dolor sit amet'
+                content: 'lorem ipsum dolor sit amet',
+                status: 'Public'
             },{
                 title: 'forth',
-                content: 'lorem ipsum dolor sit amet'
+                content: 'lorem ipsum dolor sit amet',
+                status: 'Public'
             },{
                 title: 'fifth',
-                content: 'lorem ipsum dolor sit amet'
+                content: 'lorem ipsum dolor sit amet',
+                status: 'Public'
             }
         ]
     });
