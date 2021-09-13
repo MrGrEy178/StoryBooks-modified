@@ -21,14 +21,6 @@ router.get('/dashboard', ensureAuth, (req, res) => {
                 title: 'third',
                 content: 'lorem ipsum dolor sit amet',
                 status: 'Public'
-            },{
-                title: 'forth',
-                content: 'lorem ipsum dolor sit amet',
-                status: 'Public'
-            },{
-                title: 'fifth',
-                content: 'lorem ipsum dolor sit amet',
-                status: 'Public'
             }
         ]
     });

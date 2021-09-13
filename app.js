@@ -10,7 +10,7 @@ const connectDB = require('./config/db')
 // Load config
 dotenv.config({ path: path.join(__dirname, 'config', 'config.env') });
 
-// Google oath initialization
+// Google oauth initialization
 require('./config/passport')(passport);
 
 connectDB();
