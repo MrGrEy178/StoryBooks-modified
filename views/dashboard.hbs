@@ -1,0 +1,14 @@
+<div id="main">
+    <div class="posts_container">
+    {{#each posts}}
+        <div class="posts">
+            <h3 class="posts_title">
+                {{this.title}}
+            </h3>
+            <p class="posts_content">
+                {{this.content}}
+            </p>
+        </div>
+    {{/each}}
+    </div>
+</div>
