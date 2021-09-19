@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
-router.get('/create-story', (req, res) => {
-    res.render('create');
+router.get('/add-story', (req, res) => {
+    res.render('stories/add');
 });
+
+module.exports = router;
