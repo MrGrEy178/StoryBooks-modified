@@ -8,21 +8,7 @@ router.get('/', ensureGuest, (req, res) => {
 
 router.get('/dashboard', ensureAuth, (req, res) => {
     res.render('dashboard', {
-        posts: [
-            {
-                title: 'first',
-                content: 'lorem ipsum dolor sit amet',
-                status: 'Public'
-            },{
-                title: 'second',
-                content: 'lorem ipsum dolor sit amet',
-                status: 'Public'
-            },{
-                title: 'third',
-                content: 'lorem ipsum dolor sit amet',
-                status: 'Public'
-            }
-        ]
+        username: req.user.displayName,
     });
 });
 

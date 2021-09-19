@@ -5,7 +5,8 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
-const connectDB = require('./config/db')
+const connectDB = require('./config/db');
+const MongoStore = require('connect-mongo')(session);
 
 // Load config
 dotenv.config({ path: path.join(__dirname, 'config', 'config.env') });
@@ -29,7 +30,8 @@ app.set('view engine', '.hbs');
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
 // Passport init
@@ -38,6 +40,9 @@ app.use(passport.session());
 
 // Static folder
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('/public/js/main.js', (req, res) => {
+    res.sendFile(__dirname + '/public/js/main.js');
+});
 
 // Router
 app.use('/', require('./routes/index'));

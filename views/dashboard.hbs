@@ -1,26 +1,46 @@
 <div id="main">
     <div class="posts_container">
         <div class="posts">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each posts}}
-                        <tr class="body_rows">
-                            <td>{{title}}</td>
-                            <td>None</td>
-                            <td>{{status}}</td>
-                            <td>Buttons</td>
+            <div class="header">
+                <h3>
+                    Dashboard
+                </h3>
+            </div>
+            <div class="greeting">
+                <h2>
+                    Welcome {{username}}!
+                </h2>
+            </div>
+            {{#if posts}}
+                <h4>
+                    Here are your stories
+                </h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th></th>
                         </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {{#each posts}}
+                            <tr class="body_rows">
+                                <td>{{title}}</td>
+                                <td>None</td>
+                                <td>{{status}}</td>
+                                <td>Buttons</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p>
+                    There are no stories to show
+                </p>
+                <a href="/create-story">Create your first Story!</a>
+            {{/if}}
         </div>
     </div>
 </div>
