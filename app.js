@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const connectDB = require('./config/db');
 const MongoStore = require('connect-mongo')(session);
+const fs = require('fs');
 
 // Load config
 dotenv.config({ path: path.join(__dirname, 'config', 'config.env') });
@@ -47,8 +48,7 @@ app.get('/public/js/main.js', (req, res) => {
 // Router
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
-app.use('/stories', require('./routes/stories'))
-
+app.use('/stories', require('./routes/stories'));
 
 const PORT = process.env.PORT || 5000;
 
