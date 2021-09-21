@@ -1,0 +1,16 @@
+<div class="form_container">
+    <form action="/stories" method="POST">
+        <label for="title">Title</label>
+        <input id="title" type="text">
+        <label for="story">Story</label>
+        <textarea name="story" id="story" cols="30" rows="10"></textarea>
+        <p>Privacy:</p>
+        <fieldset id="Privacy">
+            <input id="Private" class="isPrivate" type="radio" name="isPrivate" value="Private">
+            <label for="Private">Private</label><br>
+            <input id="Public" class="isPrivate" type="radio" name="isPrivate" value="Public">
+            <label for="Public">Public</label>
+        </fieldset>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+</div>

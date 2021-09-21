@@ -9,6 +9,10 @@ const StoriesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isPrivate: {
+        type: Boolean,
+        required: true
+    },
     author: {
         type: String,
         required: true
