@@ -23,8 +23,9 @@ router.post('/', ensureAuth, async (req, res) => {
 });
 
 // get request to the story
-router.get('/:id', ensureAuth, (req, res) => {
-    res.render()
+router.get('/:id', ensureAuth, async (req, res) => {
+    const story = await Stories.findById(req.params.id).lean();
+    res.render('stories/index', story);
 });
 
 module.exports = router;
