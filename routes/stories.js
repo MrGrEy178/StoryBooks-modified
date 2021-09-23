@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { ensureAuth } = require('../middleware/auth');
 const Stories = require('../schemas/Stories');
 
-router.get('/add-story', ensureAuth, (req, res) => {
+router.get('/add', ensureAuth, (req, res) => {
     res.render('stories/add', {
         separator: '../'
     });
@@ -11,7 +11,7 @@ router.get('/add-story', ensureAuth, (req, res) => {
 router.post('/', ensureAuth, async (req, res) => {
     try {
         req.body.author = req.user.id;
-        await Story.create(req.body);
+        await Stories.create(req.body);
         res.redirect('/dashboard');
     } catch (err) {
         console.error(err);

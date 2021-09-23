@@ -19,6 +19,10 @@ connectDB();
 
 const app = express();
 
+// body parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 // Handlebars
 app.set("views", path.join(__dirname, "views"));
 app.engine('.hbs', exphbs({

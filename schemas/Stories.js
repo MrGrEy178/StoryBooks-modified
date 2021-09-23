@@ -3,19 +3,24 @@ const mongoose = require('mongoose');
 const StoriesSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     content: {
         type: String,
         required: true
     },
-    isPrivate: {
-        type: Boolean,
+    privacy: {
+        type: String,
         required: true
     },
     author: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 });
 
