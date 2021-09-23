@@ -27,9 +27,9 @@
                     <tbody>
                         {{#each posts}}
                             <tr class="body_rows">
-                                <td>{{title}}</td>
-                                <td>None</td>
-                                <td>{{status}}</td>
+                                <td><a href="../stories/:id">{{this.title}}</a></td>
+                                <td>{{this.createdAt}}</td>
+                                <td>{{this.privacy}}</td>
                                 <td>Buttons</td>
                             </tr>
                         {{/each}}
