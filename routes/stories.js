@@ -24,8 +24,10 @@ router.post('/', ensureAuth, async (req, res) => {
 
 // get request to the story
 router.get('/:id', ensureAuth, async (req, res) => {
-    const story = await Stories.findById(req.params.id).lean();
-    res.render('stories/index', story);
+    let story = await Stories.findById(req.params.id).populate('author').lean();
+    res.render('stories/show', {
+        story,
+    });
 });
 
 module.exports = router;
