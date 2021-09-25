@@ -71,28 +71,28 @@ table{
     border: none;
     border-collapse: collapse;
 }
-tbody td{
+/*tbody td{
     padding: 5px;
-}
+}*/
 .posts_container a{
-    text-decoration: none;
-    color: white;
-    display:block;
+    /*text-decoration: none;*/
+    color: black;
+    /*display:block;
     background-color: #05f;
     width: 180px;
     border-radius: 10px;
     padding: 5px 10px;
-    margin-top: 5px;
+    margin-top: 5px;*/
 }
 .posts_container a:visited{
-    color: white;
-    display:block;
+    color: black;
+    /*display:block;
     background-color: #05f;
     width: 180px;
     border-radius: 10px;
     padding: 5px 10px;
     text-decoration: none;
-    margin-top: 5px;
+    margin-top: 5px;*/
 }
 .form_container form{
     display: flex;

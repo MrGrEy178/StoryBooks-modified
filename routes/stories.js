@@ -25,17 +25,29 @@ router.post('/', ensureAuth, async (req, res) => {
 // get request to the single story
 router.get('/:id', ensureAuth, async (req, res) => {
     let story = await Stories.findById(req.params.id).populate('author').lean();
-    res.render('stories/show', {
-        story,
-    });
+    if (req.user.id != story.author._id && story.privacy != 'Public') {
+        res.render('error/404', {
+            separator: '../../'
+        });
+    } else {
+        res.render('stories/show', {
+            story,
+            separator: '../../'
+        });
+    }
 });
 
-// show all public stories from user or all stories by auth user
+// show all public stories from user or all stories by authorized user
 router.get('/users/:id', ensureAuth, async (req, res) => {
     let stories = await Stories.find({"author": req.params.id}).lean();
-    res.render('stories/index', {
-        stories,
-    })
+    if (req.params.id == req.user.id) {
+        res.redirect('../../dashboard');
+    } else {
+        res.render('stories/index', {
+            stories,
+            separator: '../../'
+        });   
+    }
 });
 
 module.exports = router;
