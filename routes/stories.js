@@ -26,7 +26,7 @@ router.post('/', ensureAuth, async (req, res) => {
 router.get('/:id', ensureAuth, async (req, res) => {
     let story = await Stories.findById(req.params.id).populate('author').lean();
     if (req.user.id != story.author._id && story.privacy != 'Public') {
-        res.render('error/404', {
+            res.render('error/404', {
             separator: '../../'
         });
     } else {
