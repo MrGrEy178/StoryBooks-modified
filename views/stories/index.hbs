@@ -1,2 +1,11 @@
-<h2>{{title}}</h2>
-<p>{{content}}</p>
+{{#each stories}}
+    <div class="story_container">
+        <a href=""><h4>{{title}}</h4></a>
+        <p class="story_content">
+            {{content}}
+        </p>
+    {{#if allStories}}
+        <a href="/users/{{author._id}}" class="author_link"></a>
+    {{/if}}
+    </div>
+{{/each}}

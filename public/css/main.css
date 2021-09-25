@@ -104,3 +104,8 @@ tbody td{
 #submit{
     width: 200px;
 }
+.story_container{
+    width: 80%;
+    box-shadow: 5px 5px 10px;
+    margin: 25px;
+}
