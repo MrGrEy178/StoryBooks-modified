@@ -37,6 +37,14 @@ router.get('/:id', ensureAuth, async (req, res) => {
     }
 });
 
+// show all public stories
+router.get('/', ensureAuth, async (req, res) => {
+    let stories = await Stories.find({"privacy": "Public"}).populate("author").lean();
+    res.render('stories/index', {
+        stories,
+    })
+});
+
 // show all public stories from user or all stories by authorized user
 router.get('/users/:id', ensureAuth, async (req, res) => {
     let stories = await Stories.find({"author": req.params.id}).lean();
@@ -47,6 +55,27 @@ router.get('/users/:id', ensureAuth, async (req, res) => {
             stories,
             separator: '../../'
         });   
+    }
+});
+
+// get request to edit story page
+router.get('/:id/edit', ensureAuth, async (req, res) => {
+    let story = await Stories.findById(req.params.id).lean();
+    if (req.user.id == story.author._id) {
+        res.render('stories/edit', {
+            story
+        });
+    } else {
+        res.render('error/404');
+    }
+});
+
+// put request to edit a story
+router.put('/:id', ensureAuth, async (req,res) => {
+    if (req.user.id == story.author._id) {
+        
+    } else {
+        res.render('error/500');
     }
 });
 

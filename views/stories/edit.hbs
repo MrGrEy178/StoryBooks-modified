@@ -1,0 +1,16 @@
+<div class="form_container">
+    <form action="/stories" method="POST">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" value="{{story.title}}">
+        <label for="content">Story</label>
+        <textarea name="content" id="content" cols="30" rows="10">{{story.content}}</textarea>
+        <p>Privacy:</p>
+        <fieldset id="Privacy">
+            <input id="Private" class="isPrivate" type="radio" name="privacy" value="Private">
+            <label for="Private">Private</label><br>
+            <input id="Public" class="isPrivate" type="radio" name="privacy" value="Public">
+            <label for="Public">Public</label>
+        </fieldset>
+        <input id="submit" type="submit" value="Save">
+    </form>
+</div>
