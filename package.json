@@ -8,7 +8,7 @@
     "dev": "nodemon app"
   },
   "author": "MrGrey178",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",

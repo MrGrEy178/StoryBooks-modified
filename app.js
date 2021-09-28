@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
+const methodOverride = require('method-override');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -19,9 +20,19 @@ connectDB();
 
 const app = express();
 
-// body parser
+// Body parser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// Method override for put and delete requests
+app.use(methodOverride(function (req, res) {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      // look in urlencoded POST bodies and delete it
+      var method = req.body._method
+      delete req.body._method
+      return method
+    }
+  }));
 
 // Handlebars
 app.set("views", path.join(__dirname, "views"));

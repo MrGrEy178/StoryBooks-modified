@@ -72,10 +72,34 @@ router.get('/:id/edit', ensureAuth, async (req, res) => {
 
 // put request to edit a story
 router.put('/:id', ensureAuth, async (req,res) => {
-    if (req.user.id == story.author._id) {
-        
-    } else {
-        res.render('error/500');
+    let story = await Stories.findById(req.params.id).populate('author').lean();
+    if(!story){
+        res.render('error/404');
+    }else{
+        if (req.user.id == story.author._id) {
+            story = await Stories.findByIdAndUpdate(req.params.id, req.body, {
+                new: true,
+                runValidators: true,
+            });
+            res.redirect('../../dashboard');
+        } else {
+            res.render('error/500');
+        }
+    }
+});
+
+// delete a story
+router.put('/:id', ensureAuth, async (req,res) => {
+    let story = await Stories.findById(req.params.id).populate('author').lean();
+    if(!story){
+        res.render('error/404');
+    }else{
+        if (req.user.id == story.author._id) {
+            await Stories.remove({"_id": req.params.id});
+            res.redirect('../../dashboard');
+        } else {
+            res.render('error/404');
+        }
     }
 });
 

@@ -30,7 +30,13 @@
                                 <td><a href="../stories/{{_id}}">{{title}}</a></td>
                                 <td>{{createdAt}}</td>
                                 <td>{{privacy}}</td>
-                                <td><a href="../stories/{{_id}}/edit">edit</a> <a href="../stories/{{_id}}/delete">delete</a></td>
+                                <td style="display:flex;flex-direction:row">
+                                    <a href="../stories/{{_id}}/edit">edit</a> 
+                                    <form action="../stories/{{_id}}" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="submit" name="delete" value="Delete">
+                                    </form>
+                                </td>
                             </tr>
                         {{/each}}
                     </tbody>

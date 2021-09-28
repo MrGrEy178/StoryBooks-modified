@@ -1,5 +1,6 @@
 <div class="form_container">
-    <form action="/stories" method="POST">
+    <form action="/stories/{{story._id}}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
         <label for="title">Title</label>
         <input id="title" name="title" type="text" value="{{story.title}}">
         <label for="content">Story</label>
@@ -11,6 +12,6 @@
             <input id="Public" class="isPrivate" type="radio" name="privacy" value="Public">
             <label for="Public">Public</label>
         </fieldset>
-        <input id="submit" type="submit" value="Save">
+        <input type="submit" value="Save">
     </form>
 </div>
