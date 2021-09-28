@@ -89,17 +89,22 @@ router.put('/:id', ensureAuth, async (req,res) => {
 });
 
 // delete a story
-router.put('/:id', ensureAuth, async (req,res) => {
+router.delete('/:id', ensureAuth, async (req,res) => {
     let story = await Stories.findById(req.params.id).populate('author').lean();
-    if(!story){
-        res.render('error/404');
-    }else{
-        if (req.user.id == story.author._id) {
-            await Stories.remove({"_id": req.params.id});
-            res.redirect('../../dashboard');
-        } else {
+    try {
+        if(!story){
             res.render('error/404');
+        }else{
+            if (req.user.id == story.author._id) {
+                await Stories.deleteOne({_id: req.params.id});
+                res.redirect('/dashboard');
+            } else {
+                res.render('error/404');
+            }
         }
+    } catch (error) {
+        console.error(error)
+        res.render('error/500')
     }
 });
 
