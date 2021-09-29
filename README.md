@@ -1,4 +1,4 @@
-# StoryBooks-modified
+# StoryBooks
 traversy app written by me
 
 Just the same as he created, but a little bit worse viusally :)
